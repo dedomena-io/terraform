@@ -53,11 +53,11 @@ resource "aws_s3_bucket" "dd_state" {
   }
 }
 
-#terraform {
-#  required_version = ">= 0.9"
-#  backend "s3" {
-#    bucket = "dd-state"
-#    key    = "main/terraform.state"
-#    region = "us-west-2"
-#  }
-#}
+terraform {
+  required_version = ">= 0.9"
+  backend "s3" {
+    bucket = "dd-state"
+    key    = "main/terraform.state"
+    region = "us-west-2"
+  }
+}
