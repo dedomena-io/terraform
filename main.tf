@@ -8,6 +8,9 @@ resource "aws_vpc" "dev" {
   cidr_block = var.aws_subnet["dev_main"]
   enable_dns_hostnames = true
   enable_dns_support = true
+  tags = {
+    Name        = "dev"
+  }
 }
 
 # Create an internet gateway to give our subnet access to the outside world

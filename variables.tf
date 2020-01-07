@@ -4,12 +4,10 @@ variable "public_key_path" {
 }
 
 variable "key_name" {
-  description = "aws ssh key"
   default     = "aws_key"
 }
 
 variable "aws_region" {
-  description = "AWS region to launch servers."
   default     = "us-west-2"
 }
 
