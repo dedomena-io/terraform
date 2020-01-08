@@ -30,8 +30,8 @@ resource "aws_instance" "bastion" {
     inline = [
       "sudo yum -y update",
       "sudo hostname ${aws_instance.bastion.tags.Name} && echo ${aws_instance.bastion.tags.Name} |sudo tee /etc/hostname",
-      "sudo echo 127.0.0.1 ${aws_instance.bastion.tags.Name}.dedomena.io ${aws_instance.bastion.tags.Name} |sudo tee -a /etc/hosts",
-      "sudo echo ${aws_instance.bastion.private_ip} ${aws_instance.bastion.tags.Name}.dedomena.io ${aws_instance.bastion.tags.Name} |sudo tee -a /etc/hosts"
+      "sudo echo 127.0.0.1 ${aws_instance.bastion.tags.Name}.dev.dedomena.io ${aws_instance.bastion.tags.Name} |sudo tee -a /etc/hosts",
+      "sudo echo ${aws_instance.bastion.private_ip} ${aws_instance.bastion.tags.Name}.dev.dedomena.io ${aws_instance.bastion.tags.Name} |sudo tee -a /etc/hosts"
     ]
   }
 
