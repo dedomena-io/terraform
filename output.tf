@@ -1,0 +1,12 @@
+output "vpc_dev" { value = "${aws_vpc.dev.id}" }
+output "vpc_cidr" { value = "${aws_vpc.dev.cidr_block}" }
+output "sec_group_dev" { value = "${aws_vpc.dev.default_security_group_id}" }
+output "sec_group_ping" { value = "${aws_security_group.ping.id}" }
+output "sec_group_ssh" { value = "${aws_security_group.ssh.id}" }
+output "sec_group_http" { value = "${aws_security_group.http.id}" }
+output "dns_main" { value = "${aws_route53_zone.main.id}" }
+output "dns_dev" { value = "${aws_route53_zone.dev.id}" }
+output "aws_region_west" { value = "${var.aws_region}" }
+output "key_name" { value = "${var.key_name}" }
+output "aws_subnet_public" { value = "${aws_subnet.public.id}" }
+output "aws_subnet_private_a" { value = "${aws_subnet.private_a.id}" }
