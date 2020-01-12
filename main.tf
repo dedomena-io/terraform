@@ -57,7 +57,7 @@ resource "aws_s3_bucket" "dd_state" {
 }
 
 terraform {
-  required_version = ">= 0.9"
+  required_version = ">= 0.12"
   backend "s3" {
     bucket = "dd-state"
     key    = "main/terraform.state"
