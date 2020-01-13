@@ -39,6 +39,20 @@ resource "aws_subnet" "private_a" {
   availability_zone       = var.aws_az["dev_a"]
 }
 
+resource "aws_subnet" "private_b" {
+  vpc_id                  = aws_vpc.dev.id
+  cidr_block              = var.aws_subnet["dev_b"]
+  map_public_ip_on_launch = false
+  availability_zone       = var.aws_az["dev_b"]
+}
+
+resource "aws_subnet" "private_c" {
+  vpc_id                  = aws_vpc.dev.id
+  cidr_block              = var.aws_subnet["dev_c"]
+  map_public_ip_on_launch = false
+  availability_zone       = var.aws_az["dev_c"]
+}
+
 # SSH key
 resource "aws_key_pair" "auth" {
   key_name   = var.key_name

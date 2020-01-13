@@ -17,6 +17,8 @@ variable "aws_subnet" {
     dev_main = "10.0.0.0/16"
     dev_public = "10.0.0.0/24"
     dev_a = "10.0.1.0/24"
+    dev_b = "10.0.2.0/24"
+    dev_c = "10.0.3.0/24"
   }
 }
 

@@ -10,3 +10,5 @@ output "aws_region_west" { value = "${var.aws_region}" }
 output "key_name" { value = "${var.key_name}" }
 output "aws_subnet_public" { value = "${aws_subnet.public.id}" }
 output "aws_subnet_private_a" { value = "${aws_subnet.private_a.id}" }
+output "aws_subnet_private_b" { value = "${aws_subnet.private_b.id}" }
+output "aws_subnet_private_c" { value = "${aws_subnet.private_c.id}" }
