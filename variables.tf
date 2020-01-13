@@ -36,6 +36,21 @@ variable "aws_amis" {
   }
 }
 
+# Security groups IPs
+variable "cidr_block" {
+  type = list
+  default = [
+    "10.0.0.0/16",
+    "8.8.8.8/32"
+  ]
+}
+
+# Kubernetes
+variable "cluster-name" {
+  type    = string
+  default = "dd-dev-cluster"
+}
+
 #variable "eip" {
 #  default = {
 #    admin = "eipalloc-27e2011a"               #35.160.30.102
