@@ -1,9 +1,9 @@
 resource "aws_route53_zone" "main" {
-   name = "dedomena.io"
+   name = "krolm.com"
 }
 
 resource "aws_route53_zone" "dev" {
-  name  = "dev.dedomena.io"
+  name  = "dev.krolm.com"
 
   vpc {
     vpc_id = aws_vpc.dev.id
@@ -14,9 +14,9 @@ resource "aws_route53_zone" "dev" {
   }
 }
 
-resource "aws_route53_record" "dev-ns" {
+resource "aws_route53_record" "dev-krolm" {
   zone_id = aws_route53_zone.main.zone_id
-  name    = "dev.dedomena.io"
+  name    = "dev.krolm.com"
   type    = "NS"
   ttl     = "30"
 
@@ -31,10 +31,10 @@ resource "aws_route53_record" "dev-ns" {
 # Public www records
 #resource "aws_route53_record" "apex" {
 #  zone_id = aws_route53_zone.main.zone_id
-#  name = "dedomena.io"
+#  name = "krolm.com"
 #  type = "A"
 #  alias {
-#    name = "www.dedomena.io"
+#    name = "www.krolm.com"
 #    zone_id = aws_route53_zone.main.zone_id
 #    evaluate_target_health = false
 #  }

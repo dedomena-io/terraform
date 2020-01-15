@@ -11,6 +11,14 @@ variable "aws_region" {
   default     = "us-west-2"
 }
 
+variable "domain" {
+  default     = "krolm.com"
+}
+
+variable "dns_ttl" {
+  default = "300"
+}
+
 # Subnet
 variable "aws_subnet" {
   default = {

@@ -44,7 +44,7 @@ resource "aws_instance" "bastion" {
 # DNS record
 resource "aws_route53_record" "bastion_private" {
    zone_id = aws_route53_zone.dev.zone_id
-   name = "bastion.dev.dedomena.io"
+   name = "bastion.dev.${var.domain}"
    type = "A"
    ttl = "300"
    records = [aws_instance.bastion.private_ip]
@@ -52,7 +52,7 @@ resource "aws_route53_record" "bastion_private" {
 
 resource "aws_route53_record" "bastion_public" {
    zone_id = aws_route53_zone.main.zone_id
-   name = "bastion.dedomena.io"
+   name = "bastion.${var.domain}"
    type = "A"
    ttl = "300"
    records = [aws_instance.bastion.public_ip]
