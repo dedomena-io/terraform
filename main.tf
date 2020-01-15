@@ -70,10 +70,30 @@ resource "aws_s3_bucket" "dd_state" {
   }
 }
 
+resource "aws_s3_bucket" "krolm_state" {
+  bucket = "krolm-state"
+  versioning {
+    enabled = true
+  }
+  lifecycle {
+    prevent_destroy = true
+  }
+}
+
+# Block public access
+resource "aws_s3_bucket_public_access_block" "krolm_state" {
+  bucket = aws_s3_bucket.krolm_state.id
+
+  block_public_acls   = true
+  block_public_policy = true
+  ignore_public_acls  = true
+  restrict_public_buckets = true
+}
+
 terraform {
   required_version = ">= 0.12"
   backend "s3" {
-    bucket = "dd-state"
+    bucket = "krolm-state"
     key    = "main/terraform.state"
     region = "us-west-2"
   }
