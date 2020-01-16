@@ -30,3 +30,22 @@ resource "aws_route53_record" "mx_public" {
     "15 6jlwxghygpvrekes3c2apmzik3biydbhksltxuvasngd3ca6kgnq.mx-verification.google.com."
   ]
 }
+
+# TXT verification
+resource "aws_route53_record" "txt_public" {
+  zone_id = data.terraform_remote_state.vpc_dev.outputs.dns_main
+  name = "krolm.com"
+  type = "TXT"
+  ttl  = var.dns_ttl
+  records = [
+    "google-site-verification=8ldrmPgz6xIokti0B7MoVsKMDCdUlzvSoJNMPYgeUZs"
+  ]
+}
+
+resource "aws_route53_record" "cname_public" {
+  zone_id = data.terraform_remote_state.vpc_dev.outputs.dns_main
+  name = "pxutbgjkll2l.krolm.com."
+  type = "CNAME"
+  ttl  = var.dns_ttl
+  records = ["gv-262tuf47y32wip.dv.googlehosted.com"]
+}
