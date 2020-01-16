@@ -31,7 +31,7 @@ resource "aws_route53_record" "mx_public" {
   ]
 }
 
-# TXT verification
+# Google TXT verification
 resource "aws_route53_record" "txt_public" {
   zone_id = data.terraform_remote_state.vpc_dev.outputs.dns_main
   name = "krolm.com"
@@ -48,4 +48,15 @@ resource "aws_route53_record" "cname_public" {
   type = "CNAME"
   ttl  = var.dns_ttl
   records = ["gv-262tuf47y32wip.dv.googlehosted.com"]
+}
+
+# GitHub verification
+resource "aws_route53_record" "txt_github" {
+  zone_id = data.terraform_remote_state.vpc_dev.outputs.dns_main
+  name = "_github-challenge-krolm.krolm.com."
+  type = "TXT"
+  ttl  = var.dns_ttl
+  records = [
+    "94196d82cb"
+  ]
 }
