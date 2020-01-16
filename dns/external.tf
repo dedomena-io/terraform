@@ -31,14 +31,15 @@ resource "aws_route53_record" "mx_public" {
   ]
 }
 
-# Google TXT verification
+# Google and Atlassian TXT verification
 resource "aws_route53_record" "txt_public" {
   zone_id = data.terraform_remote_state.vpc_dev.outputs.dns_main
   name = "krolm.com"
   type = "TXT"
   ttl  = var.dns_ttl
   records = [
-    "google-site-verification=8ldrmPgz6xIokti0B7MoVsKMDCdUlzvSoJNMPYgeUZs"
+    "google-site-verification=8ldrmPgz6xIokti0B7MoVsKMDCdUlzvSoJNMPYgeUZs",
+    "atlassian-domain-verification=ixOGQvuhjvPqD718z/iJmLuAXbHN3waSoRLJgjojO5hVboaWm/jZW5aoQz/W5UWk"
   ]
 }
 
